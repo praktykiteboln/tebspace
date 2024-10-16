@@ -1,0 +1,178 @@
+/* Ogólne style dla mobilnych urządzeń */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.5;
+    background-color: #000; /* czarne tło */
+    color: #e0e0e0; /* jasny tekst */
+}
+
+header {
+    background: #1a1a1a; /* ciemniejsze tło nagłówka */
+    color: #e0e0e0;
+    padding: 15px 10px;
+    text-align: center;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.hamburger {
+    display: none; /* Ukryj domyślnie */
+    font-size: 28px;
+    cursor: pointer;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline-block;
+    margin: 0 10px;
+}
+
+nav a {
+    color: #64b5f6; /* jaśniejszy niebieski */
+    text-decoration: none;
+    padding: 8px 12px;
+    border-radius: 20px; /* zaokrąglone tło */
+    background-color: #444; /* ciemne tło linków */
+    transition: background 0.3s, color 0.3s;
+}
+
+nav a:hover {
+    background: #64b5f6; /* jaśniejszy niebieski podświetlony */
+    color: #000; /* czarny tekst */
+}
+
+.hero {
+    background: #1a1a1a; /* ciemne tło sekcji hero */
+    padding: 40px 10px;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 28px; /* większy rozmiar */
+}
+
+.hero p {
+    font-size: 16px;
+}
+
+.main-btn {
+    background: #3f51b5; /* niebieski kolor */
+    color: #fff; /* biały tekst */
+    border: none;
+    padding: 12px 20px;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 20px;
+    transition: background 0.3s;
+}
+
+.main-btn:hover {
+    background: #2c388e; /* ciemniejszy niebieski */
+}
+
+section {
+    padding: 20px;
+    margin: 10px 5px;
+    background: #1f1f1f; /* ciemne tło sekcji */
+    border-radius: 8px;
+}
+
+h2 {
+    color: #64b5f6; /* jaśniejszy niebieski */
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    max-width: 90%; /* Szerokość formularza */
+    margin: auto;
+}
+
+form input, form textarea {
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #444; /* ciemne ramki */
+    border-radius: 5px;
+    background: #333; /* ciemne tło pól */
+    color: #e0e0e0; /* jasny tekst */
+}
+
+form button {
+    padding: 10px;
+    background: #3f51b5; /* niebieski kolor */
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+form button:hover {
+    background: #2c388e; /* ciemniejszy niebieski */
+}
+
+footer {
+    text-align: center;
+    padding: 10px 0;
+    background: #1a1a1a; /* ciemniejsze tło stopki */
+    color: #e0e0e0;
+}
+
+/* Media queries dla dalszego dostosowania */
+@media (max-width: 768px) {
+    .hamburger {
+        display: block; /* Pokaż ikonę hamburgera na małych ekranach */
+    }
+
+    #nav-links {
+        display: none; /* Ukryj linki na małych ekranach */
+        flex-direction: column; /* Ustaw linki w kolumnie */
+        position: absolute;
+        top: 60px; /* Przesuń w dół */
+        left: 0;
+        right: 0;
+        background-color: #1a1a1a;
+        padding: 10px 0;
+        z-index: 1000; /* Zapewnij, że menu jest nad innymi elementami */
+    }
+
+    nav ul.show {
+        display: flex; /* Pokaż linki, gdy są aktywne */
+    }
+
+    nav ul li {
+        margin: 10px 0; /* Ustaw marginesy dla linków w kolumnie */
+        text-align: center; /* Wyrównaj linki do środka */
+    }
+}
+
+@media (max-width: 480px) {
+    .logo {
+        font-size: 20px;
+    }
+
+    nav ul li {
+        margin: 0 5px;
+    }
+
+    .hero h1 {
+        font-size: 24px;
+    }
+
+    .hero p {
+        font-size: 14px;
+    }
+
+    .main-btn {
+        padding: 10px 15px;
+        font-size: 12px;
+    }
+}
