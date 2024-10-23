@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TebSpace</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         body {
             margin: 0;
@@ -13,17 +14,17 @@
             line-height: 1.6;
         }
         header {
-            background: rgba(30, 30, 30, 0.9);
+            background: rgba(30, 30, 30, 0.7); /* Adjust opacity for better blur effect */
             border-radius: 0 0 20px 20px;
             position: fixed;
             top: 0;
             left: 50%;
             transform: translateX(-50%);
             z-index: 1000;
-            backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px); /* This keeps the blur effect */
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
-            width: calc(100% - 100px); /* Dostosuj szerokość */
-            max-width: 1200px; /* Maksymalna szerokość */
+            width: calc(100% - 100px);
+            max-width: 1200px;
             padding: 20px 0;
         }
         nav {
@@ -32,7 +33,7 @@
             gap: 40px;
         }
         nav a {
-            color: #ffffff;
+            color: #ffffff; /* White color for text */
             text-decoration: none;
             font-weight: bold;
             padding: 10px 20px;
@@ -58,6 +59,10 @@
         }
         nav a:hover::after {
             transform: translateX(-50%) scaleX(1);
+        }
+        nav a i {
+            color: #ffffff; /* White color for icons */
+            margin-right: 8px; /* Space between icon and text */
         }
         .hero {
             text-align: center;
@@ -98,17 +103,51 @@
 
 <header>
     <nav>
-        <a href="#">Strona główna</a>
-        <a href="about.html">O nas</a>
-        <a href="projects.html">Nasze Misje</a>
+        <a href="#"><i class="fas fa-satellite"></i> Strona główna</a>
+        <a href="about.html"><i class="fas fa-user"></i> O nas</a>
+        <a href="projects.html"><i class="fas fa-rocket"></i> Nasze Misje</a>
+        <a href="education.html" ><i class='fas fa-graduation-cap'></i> Edukacja</a>
+        <a href="settings.html"><i class="fas fa-cog"></i> Ustawienia</a>
     </nav>
 </header>
-
 <div class="hero">
-    <h1>Witamy w TebSpace!</h1>
+    <h1 class="welcome-message">Witamy w TebSpace!</h1>
     <img src="rocket.png" alt="Rakieta">
-    <p>Tworzymy przyszłość eksploracji kosmicznej.</p>
+    <p class="description">Tworzymy przyszłość eksploracji kosmicznej.</p>
 </div>
+
+<script>
+    function updateContent(language) {
+        const translations = {
+            pl: {
+                home: "Strona główna",
+                about: "O nas",
+                projects: "Nasze Misje",
+                education: "Edukacja",
+                welcome: "Witamy w TebSpace!",
+                description: "Tworzymy przyszłość eksploracji kosmicznej."
+            },
+            en: {
+                home: "Home",
+                about: "About Us",
+                projects: "Our Missions",
+                education: "Education",
+                welcome: "Welcome to TebSpace!",
+                description: "We create the future of space exploration."
+            }
+        };
+
+        document.querySelector('.home-link').textContent = translations[language].home;
+        document.querySelector('.about-link').textContent = translations[language].about;
+        document.querySelector('.projects-link').textContent = translations[language].projects;
+        document.querySelector('.education-link').textContent = translations[language].education;
+        document.querySelector('.welcome-message').textContent = translations[language].welcome;
+        document.querySelector('.description').textContent = translations[language].description;
+    }
+
+    const storedLanguage = localStorage.getItem('language') || 'pl';
+    updateContent(storedLanguage);
+</script>
 
 </body>
 </html>
